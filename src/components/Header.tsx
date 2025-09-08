@@ -79,12 +79,11 @@ const Header = () => {
             - "Whatsapp"
             - Carrinho de compras
           */}
-          <Button 
-            variant="default"
-            className="hidden md:inline-flex bg-gradient-to-r from-primary to-primary-glow hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
-          >
-            Visite Nossa Loja
-          </Button>
+                <Button asChild size="lg" className="bg-gradient-to-r from-primary to-accent hover:shadow-xl hover:shadow-primary/30">
+          <a href="#como-chegar">
+            Visitar Loja Física
+          </a>
+        </Button>
 
           {/* 
             MENU MOBILE - Você pode implementar um menu hamburguer aqui

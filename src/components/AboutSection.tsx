@@ -66,7 +66,7 @@ const AboutSection = () => {
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Três gerações dedicadas à arte do tabaco fino
+            A mais de 25 anos aberta !
           </p>
         </div>
 
@@ -82,22 +82,23 @@ const AboutSection = () => {
             */}
             <div className="bg-gradient-to-br from-card to-card/80 p-8 rounded-2xl border border-border shadow-soft">
               <h3 className="text-2xl font-bold text-foreground mb-4">
-                Uma Tradição Familiar
+                A história da Tabacaria 
               </h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  Fundada em 1950 por <strong className="text-foreground">Don Giuseppe Ramirez</strong>, 
-                  nossa tabacaria nasceu da paixão por oferecer aos brasileiros a mesma qualidade 
-                  e tradição encontradas nas melhores casas europeias.
+               <p>
+
+O consumo de tabaco tem origem nas culturas indígenas das Américas, muito antes da chegada dos europeus. Os povos nativos já utilizavam a planta em rituais, celebrações e até de forma medicinal. No século XVI, o tabaco foi levado para a Europa, tornando-se um produto valioso e difundido em todo o mundo.
+
+No Brasil, o cultivo do tabaco e sua apreciação se consolidaram desde o período colonial. Com o tempo, novas formas de consumo surgiram, como charutos, cachimbos, cigarros artesanais, narguilés e vaporizadores.
+
+É dentro dessa tradição que nossa tabacaria se encontra. Aberta há mais de duas décadas, ela passou recentemente por uma mudança de direção. Os antigos proprietários estavam prestes a encerrar suas atividades, mas acreditamos no potencial e resolvemos assumir a casa, trazendo uma nova energia e revitalizando o espaço.
+
+Hoje, nossa missão é dar continuidade à história da tabacaria, unindo tradição e modernidade, mantendo o respeito pelo passado e ao mesmo tempo oferecendo novidades para todos que apreciam a cultura do tabaco.
                 </p>
+               
                 <p>
-                  Localizada no coração do centro histórico, nossa loja preserva o charme 
-                  e a elegância de uma época em que fumar era uma arte refinada. Cada 
-                  produto é cuidadosamente selecionado por nossa equipe especializada.
-                </p>
-                <p>
-                  Hoje, sob a direção da terceira geração da família, continuamos 
-                  inovando enquanto mantemos vivos os valores que nos trouxeram até aqui: 
+                  Hoje, sob nossa direção, continuamos 
+                  inovando e mantendo valores que nos trouxeram até aqui: 
                   <strong className="text-primary"> qualidade, tradição e atendimento excepcional</strong>.
                 </p>
               </div>
@@ -112,22 +113,16 @@ const AboutSection = () => {
                 Nossos Diferenciais
               </h4>
               <ul className="space-y-2 text-muted-foreground">
-                <li className="flex items-center">
+                <li className="flex items                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 \\-center">
                   <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                  Humidores climatizados para preservação perfeita
+                  Qualidade excelente no atendimento
                 </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                  Importação direta dos melhores produtores mundiais
+                  Produtos da melhor qualidade
                 </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                  Consultoria especializada para iniciantes e conhecedores
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
-                  Eventos e degustações exclusivas
-                </li>
+              
+              
               </ul>
             </div>
           </div>

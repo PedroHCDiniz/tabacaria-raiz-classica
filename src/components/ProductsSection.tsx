@@ -1,82 +1,70 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import charutosImage from "@/assets/charutos.jpg";
 import cachimbosImage from "@/assets/cachimbos.jpg";
 import acessoriosImage from "@/assets/acessorios.jpg";
+import canivetes from "@/assets/canivetes.jpg";
+import eubone from "@/assets/eubone.jpg";
+import cuias from "@/assets/cuias.jpg";
+import chapéus from "@/assets/chapéus.jpg";
+// Em src/main.jsx (ou main.tsx)
 
 /**
- * SEÇÃO DE PRODUTOS - Showcase dos principais produtos
+ * SEÇÃO DE PRODUTOS - Carrossel dos principais produtos
  * 
- * Esta seção apresenta as principais categorias de produtos da tabacaria.
+ * Esta seção apresenta as principais categorias de produtos da tabacaria em formato de carrossel.
  * Ela serve para:
  * - Mostrar a variedade de produtos oferecidos
  * - Criar interesse nos produtos específicos
  * - Guiar o cliente para conhecer mais sobre cada categoria
  * 
  * ESTRUTURA ATUAL:
- * - Grid responsivo com 3 categorias principais
- * - Cards com imagem, título, descrição e botão
- * - Design elegante com hover effects
- * 
- * POSSÍVEIS MELHORIAS QUE VOCÊ PODE ADICIONAR:
- * - Mais categorias de produtos
- * - Preços ou faixas de preço
- * - Sistema de filtros
- * - Carrossel de produtos em destaque
- * - Badges (Ex: "Mais vendido", "Novidade", "Importado")
- * - Links para páginas específicas de cada categoria
- * - Modal com mais detalhes ao clicar
- * - Sistema de favoritos
- * - Avaliações/reviews dos produtos
+ * - Carrossel responsivo com 3 categorias principais
+ * - Slides com imagem, título, descrição e botão
+ * - Design elegante com transições suaves
  */
 
-// Array com os dados dos produtos - você pode mover isso para um arquivo separado
-// ou conectar com uma API/banco de dados
+// Array com os dados dos produtos
 const produtos = [
   { 
     id: 1,
-    titulo: "Charutos Premium",
-    descricao: "Seleção exclusiva de charutos cubanos e dominicanos, envelhecidos em nossos humidores climatizados.",
-    imagem: charutosImage,
-    destaque: "Cubanos Autênticos",
-    // Você pode adicionar mais campos:
-    // preco: "R$ 80 - R$ 500",
-    // categoria: "charutos",
-    // estoque: 45,
-    // novidade: false
+    titulo: "Canivetes",
+    descricao: "Diversos tipos de Canivetes, Tradicionais aos Táticos",
+    imagem: canivetes,
+    destaque: "Mais de 30 tipos",
   },
   {
     id: 2,
-    titulo: "Cachimbos Artesanais",
-    descricao: "Cachimbos únicos feitos à mão por mestres artesãos, combinando tradição e sofisticação.",
-    imagem: cachimbosImage,
-    destaque: "Feitos à Mão",
-    // preco: "R$ 120 - R$ 800",
-    // categoria: "cachimbos",
-    // estoque: 23,
-    // novidade: true
+    titulo: "Erva-Mate Tereré e Chimarrão",
+    descricao: "Ervas Tradicionais para quem é Raiz de verdade! Inúmeras Bombas, Cuias e Copos para você aproveitar a tradição do campo!",
+    imagem: cuias,
+    destaque: "Os melhores Mates",
   },
   {
     id: 3,
-    titulo: "Acessórios Finos",
-    descricao: "Cortadores, isqueiros, cinzeiros e humidores das melhores marcas europeias.",
-    imagem: acessoriosImage,
-    destaque: "Marcas Europeias",
-    // preco: "R$ 45 - R$ 350",
-    // categoria: "acessorios",
-    // estoque: 67,
-    // novidade: false
+    titulo: "Vestúario completo para quem é Raiz mesmo",
+    descricao:" Chapéus, botinas e os mais bonitos cintos de couro! E muito mais, venha conferir!",
+    imagem: chapéus,
+    destaque: "Inúmeros itens! ",
+  },
+    { 
+    id: 4,
+    titulo: "Diversos outros produtos",
+    descricao: "Venha Conferir todos",
+    imagem: eubone,
+    destaque: "Bonés",
   }
+
+   
 ];
+
+const overlayExtraIds = [ 2, 4]; // IDs dos produtos que terão overlay extra
 
 const ProductsSection = () => {
   return (
     <section id="produtos" className="py-20 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-4">
-        {/* 
-          CABEÇALHO DA SEÇÃO
-          Título e descrição que introduzem os produtos
-        */}
+        {/* CABEÇALHO DA SEÇÃO */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Nossos{" "}
@@ -90,94 +78,65 @@ const ProductsSection = () => {
           </p>
         </div>
 
-        {/* 
-          GRID DE PRODUTOS
-          Layout responsivo que se adapta ao tamanho da tela:
-          - 1 coluna no mobile
-          - 2 colunas no tablet  
-          - 3 colunas no desktop
-        */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {produtos.map((produto) => (
-            <Card 
-              key={produto.id}
-              className="group overflow-hidden bg-card border-border hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-2"
-            >
-              {/* 
-                IMAGEM DO PRODUTO
-                Container da imagem com overflow hidden para efeito hover
-                A imagem tem transition para efeito de zoom suave
-              */}
-              <div className="relative overflow-hidden h-64">
-                <img
-                  src={produto.imagem}
-                  alt={produto.titulo}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                
-                {/* 
-                  BADGE DE DESTAQUE
-                  Pequeno indicador no canto da imagem
-                  Você pode adicionar lógica para mostrar diferentes badges:
-                  - "Novidade" para produtos novos
-                  - "Promoção" para produtos em oferta
-                  - "Mais vendido" para produtos populares
-                */}
-                <div className="absolute top-4 right-4">
-                  <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
-                    {produto.destaque}
-                  </span>
-                </div>
-              </div>
-
-              {/* 
-                CONTEÚDO DO CARD
-                Informações textuais sobre o produto
-              */}
-              <CardHeader className="pb-4">
-                <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                  {produto.titulo}
-                </CardTitle>
-                <CardDescription className="text-muted-foreground leading-relaxed">
-                  {produto.descricao}
-                </CardDescription>
-              </CardHeader>
-
-              {/* 
-                RODAPÉ DO CARD
-                Botão de ação para cada produto
-                Você pode adicionar mais elementos aqui:
-                - Preço do produto
-                - Botão "Adicionar ao carrinho"
-                - Avaliação em estrelas
-                - Indicador de estoque
-              */}
-              <CardContent className="pt-0">
-                <Button 
-                  className="w-full bg-gradient-to-r from-secondary to-accent hover:shadow-lg hover:shadow-secondary/25 transition-all duration-300"
-                  variant="default"
-                >
-                  Ver Coleção
-                </Button>
-                
-                {/* 
-                  EXEMPLO DE ELEMENTOS ADICIONAIS QUE VOCÊ PODE DESCOMENTAR:
-                */}
-                {/* 
-                <div className="flex justify-between items-center mt-3 pt-3 border-t border-border">
-                  <span className="text-lg font-bold text-primary">{produto.preco}</span>
-                  <span className="text-sm text-muted-foreground">{produto.estoque} em estoque</span>
-                </div>
-                */}
-              </CardContent>
-            </Card>
-          ))}
+        {/* CARROSSEL DE IMAGENS CENTRAL */}
+        <div className="relative max-w-4xl mx-auto">
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+          
+       {produtos.map((produto) => (
+  <CarouselItem key={produto.id}>
+    <div className="flex justify-center">
+      <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+        <img
+          src={produto.imagem}
+          alt={produto.titulo}
+          className="w-full h-[500px] object-cover transition-transform duration-300"
+        />
+        
+        {/* Overlay padrão para todos */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+        
+        {/* Overlay extra para IDs definidos */}
+        {overlayExtraIds.includes(produto.id) && (
+          <div className="absolute inset-0 bg-black/55" />
+        )}
+        
+        {/* INFORMAÇÕES DA IMAGEM */}
+        <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+          <h3 className="text-2xl font-bold mb-2">{produto.titulo}</h3>
+          <p className="text-lg opacity-90 mb-4">{produto.descricao}</p>
+          <Button className="bg-primary hover:bg-primary/90">
+            Ver Coleção
+          </Button>
         </div>
 
-        {/* 
-          SEÇÃO DE CALL-TO-ACTION
-          Incentiva o visitante a conhecer mais produtos ou visitar a loja
-        */}
+        {/* BADGE DE DESTAQUE */}
+        <div className="absolute top-6 right-6">
+          <span className="bg-primary text-primary-foreground px-4 py-2 rounded-full font-medium shadow-lg">
+            {produto.destaque}
+          </span>
+        </div>
+      </div>
+    </div>
+  </CarouselItem>
+))}
+  
+
+             
+            </CarouselContent>
+            
+            {/* CONTROLES DO CARROSSEL */}
+            <CarouselPrevious className="absolute -left-16 top-1/2 -translate-y-1/2 bg-yellow-500 text-white hover:bg-[#a07e28] hover:text-white shadow-lg" />
+            <CarouselNext className="absolute -right-16 top-1/2 -translate-y-1/2 bg-yellow-500 text-white hover:bg-[#a07e28] hover:text-white shadow-lg" /></Carousel>
+        </div>
+
+        {/* SEÇÃO DE CALL-TO-ACTION */}
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-card to-muted/50 rounded-2xl p-8 border border-border">
             <h3 className="text-2xl font-bold text-foreground mb-4">
@@ -187,13 +146,12 @@ const ProductsSection = () => {
               Visite nossa loja física e descubra centenas de produtos únicos, 
               ou entre em contato para atendimento personalizado.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg"
-                className="bg-gradient-to-r from-primary to-primary-glow hover:shadow-xl hover:shadow-primary/30"
-              >
-                Visitar Loja Física
-              </Button>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button asChild size="lg" className="bg-gradient-to-r from-primary to-accent hover:shadow-xl hover:shadow-primary/30">
+          <a href="#como-chegar">
+            Visitar Loja Física
+          </a>
+        </Button>
               <Button 
                 variant="outline" 
                 size="lg"
@@ -209,4 +167,4 @@ const ProductsSection = () => {
   );
 };
 
-export default ProductsSection;
+export default ProductsSection; 

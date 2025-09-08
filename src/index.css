@@ -137,3 +137,12 @@ html {
 .soft-shadow {
   text-shadow: 0 5px 8px rgba(0,0,0,0.5);
 }
+
+.seta-personalizada {
+  background-color: #a07e28 !important;
+  color: #fff !important;
+  border: none !important;
+}
+html {
+  scroll-behavior: smooth;
+}

@@ -80,7 +80,8 @@ const ContactSection = () => {
                   <p className="text-muted-foreground">
                     Rua Amin Fares Debian <br />
                     Centro <br />
-                    Betim - MG
+                    Betim - MG <br />
+                    CEP: 32600-014
                   </p>
                 </div>
 
@@ -91,7 +92,7 @@ const ContactSection = () => {
                   <h4 className="font-semibold text-foreground mb-2">Horário de Funcionamento</h4>
                   <div className="text-muted-foreground space-y-1">
                     <p>Segunda a Sexta: 9h às 19h</p>
-                    <p>Sábados: 9h às 17h</p>
+                    <p>Sábados: 9h às 19h</p>
                     <p>Domingos: Fechado</p>
                   </div>
                 </div>
@@ -122,15 +123,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-semibold text-foreground mb-3">Telefones</h4>
                   <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Loja:</span>
-                      <a 
-                        href="tel:+5511123456789" 
-                        className="text-primary hover:text-primary-glow font-medium"
-                      >
-                        (11) 1234-5678
-                      </a>
-                    </div>
+                    
                     <div className="flex justify-between items-center">
                       <span className="text-muted-foreground">WhatsApp:</span>
                       <a 
@@ -320,44 +313,32 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* 
-          SEÇÃO ADICIONAL - MAPA
-          Você pode adicionar um mapa incorporado do Google Maps aqui
-        */}
+        
+        
         <div className="mt-16 text-center">
           <Card className="bg-gradient-to-r from-muted/30 to-card border-border">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                📍 Como Chegar
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Estamos localizados no coração do centro histórico, próximo ao metrô Sé 
-                e principais pontos turísticos da cidade.
-              </p>
-              
-              {/* 
-                AQUI VOCÊ PODE ADICIONAR UM MAPA REAL:
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=..." 
-                  width="100%" 
-                  height="300" 
-                  style={{border:0}} 
-                  allowFullScreen 
-                  loading="lazy"
-                ></iframe>
-              */}
-              
-              <div className="bg-muted/50 h-64 rounded-lg flex items-center justify-center border-2 border-dashed border-border">
-                <div className="text-center">
-                  <p className="text-lg font-medium text-foreground mb-2">
-                    🗺️ Mapa Interativo
-                  </p>
-                  <p className="text-muted-foreground">
-                    Aqui você pode adicionar um mapa do Google Maps
-                  </p>
-                </div>
-              </div>
-            </CardContent>
+  <h3 className="text-2xl font-bold text-foreground mb-4">
+    📍 Como Chegar
+  </h3>
+  {/* Seção para scroll */}
+  <section id="como-chegar">
+    <p className="text-muted-foreground mb-6">
+      Estamos localizados no centro da cidade, dentro do Mercado Central de Betim (CEABE)
+    </p>
+    <div className="w-full h-[400px] rounded-xl overflow-hidden my-8">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.9523348426637!2d-44.205452918742!3d-19.96850670602406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6c32b3dad95df%3A0xea387e0940f128f!2sTabacaria%20Betinho%20e%20Filhos!5e0!3m2!1spt-BR!2sbr!4v1756489866222!5m2!1spt-BR!2sbr"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </section>
+</CardContent>
           </Card>
         </div>
       </div>
