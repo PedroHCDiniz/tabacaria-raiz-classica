@@ -1,3 +1,48 @@
+# Tabacaria Raiz Clássica
+
+Projeto front-end da loja Tabacaria Raiz (Vite + React + TypeScript). Repositório criado a partir do workspace local.
+
+## Estrutura principal
+- `src/` - código-fonte (páginas, componentes, hooks)
+- `public/produtos/` - imagens e placeholders dos produtos
+
+## Requisitos
+- Node.js 18+ recomendado
+- npm
+
+## Instalação
+Abra um terminal na raiz do projeto e execute:
+
+```bash
+npm install --legacy-peer-deps
+```
+
+## Desenvolvimento
+
+Inicie o servidor de desenvolvimento (Vite):
+
+```bash
+npm run dev
+```
+
+O servidor padrão usa a porta `8080` (configurada em `vite.config.ts`). Acesse `http://localhost:8080/`.
+
+## Build
+
+```bash
+npm run build
+```
+
+## Notas úteis
+- Os placeholders de imagens dos produtos estão em `public/produtos/`.
+- A página de produtos está em `src/pages/produtos.tsx`.
+- Se houver problemas de dependências, tente `npm install --legacy-peer-deps`.
+
+## Repositório remoto
+https://github.com/PedroHCDiniz/tabacaria-raiz-classica
+
+---
+Arquivo gerado automaticamente pelo assistente em 16/11/2025.
 # Welcome to your Lovable project
 
 ## Project info
