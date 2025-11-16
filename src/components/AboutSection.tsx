@@ -30,24 +30,20 @@ import { Card, CardContent } from "@/components/ui/card";
 // Dados dos destaques - você pode personalizar esses números
 const destaques = [
   {
-    numero: "75+",
+    numero: "+25",
     titulo: "Anos de Tradição",
     descricao: "Os melhores produtos"
   },
   {
-    numero: "500+",
-    titulo: "Tipos de Charutos",
-    descricao: "A maior variedade da região"
+    numero: "Variedade",
+    titulo: "A maior variedade da região",
   },
   {
-    numero: "10.000+",
-    titulo: "Clientes Satisfeitos",
+    numero: "Clientes satisfeitos",
     descricao: "Gerações de famílias que confiam em nós"
   },
   {
-    numero: "15",
-    titulo: "Países de Origem",
-    descricao: "Produtos importados dos melhores produtores"
+    numero: "Aqui é raiz de verdade",
   }
 ];
 
@@ -133,7 +129,7 @@ Hoje, nossa missão é dar continuidade à história da tabacaria, unindo tradi�
           */}
           <div className="space-y-6">
             <h3 className="text-2xl font-bold text-center text-foreground mb-8">
-              Em Números
+             Destaques
             </h3>
             
             {/* 
@@ -180,11 +176,11 @@ Hoje, nossa missão é dar continuidade à história da tabacaria, unindo tradi�
             <div className="bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-xl border border-primary/20 mt-8">
               <blockquote className="text-center">
                 <p className="text-lg italic text-foreground mb-3">
-                  "O tabaco fino não é apenas um produto, é uma experiência que conecta 
+                  "O tabaco não é apenas um produto, é uma experiência que conecta 
                   tradição, arte e momentos especiais."
                 </p>
                 <footer className="text-sm text-muted-foreground">
-                  — Giuseppe Ramirez III, Proprietário
+                  
                 </footer>
               </blockquote>
             </div>

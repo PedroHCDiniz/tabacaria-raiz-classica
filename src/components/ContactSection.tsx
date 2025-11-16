@@ -2,6 +2,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
+import { Loader2 } from "lucide-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 /**
  * SEÇÃO DE CONTATO - Informações e formulário de contato
@@ -26,18 +29,37 @@ import { Textarea } from "@/components/ui/textarea";
  */
 
 const ContactSection = () => {
-  {/* 
-    FUNÇÃO DE ENVIO DO FORMULÁRIO
-    Atualmente só mostra um alerta, mas você pode:
-    - Conectar com um backend
-    - Usar serviços como Formspree, Netlify Forms
-    - Integrar com CRM
-    - Enviar por email
-  */}
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Aqui você implementaria o envio real do formulário
-    alert("Mensagem enviada! Entraremos em contato em breve.");
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xanawrqe', { // Substitua SEU_FORM_ID pelo seu ID do Formspree
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        form.reset();
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -127,12 +149,12 @@ const ContactSection = () => {
                     <div className="flex justify-between items-center">
                       <span className="text-muted-foreground">WhatsApp:</span>
                       <a 
-                        href="https://wa.me/5511987654321" 
+                        href="https://wa.me/5531982081947" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-primary hover:text-primary-glow font-medium"
                       >
-                        (11) 98765-4321
+                        (31) 98208-1947
                       </a>
                     </div>
                   </div>
@@ -147,7 +169,7 @@ const ContactSection = () => {
                     href="mailto:contato@tabacariaraiz.com.br"
                     className="text-primary hover:text-primary-glow"
                   >
-                    contato@tabacariaraiz.com.br
+                    tabacariabetinho00@gmail.com
                   </a>
                 </div>
 
@@ -156,7 +178,7 @@ const ContactSection = () => {
                 */}
                 <Button 
                   className="w-full bg-green-600 hover:bg-green-700 text-white"
-                  onClick={() => window.open('https://wa.me/5511987654321', '_blank')}
+                  onClick={() => window.open('https://wa.me/5531982081947', '_blank')}
                 >
                   💬 Conversar no WhatsApp
                 </Button>
@@ -175,15 +197,24 @@ const ContactSection = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex space-x-4">
-                  <Button variant="outline" size="sm" className="flex-1">
+                 {/* **<Button variant="outline" size="sm" className="flex-1">
                     📘 Facebook
                   </Button>
-                  <Button variant="outline" size="sm" className="flex-1">
-                    📷 Instagram
-                  </Button>
+
                   <Button variant="outline" size="sm" className="flex-1">
                     🎥 YouTube
                   </Button>
+                 */}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1"
+                    onClick={() => window.open('https://www.instagram.com/tabacariabetinho?utm_source=qr&igsh=MWhteGllcDBpNml5OA==', '_blank')}
+                    aria-label="Abrir Instagram"
+                  >
+                    📷 Instagram
+                  </Button>
+                
                 </div>
               </CardContent>
             </Card>
@@ -222,6 +253,7 @@ const ContactSection = () => {
                         Nome *
                       </label>
                       <Input
+                        name="nome"
                         id="nome"
                         type="text"
                         placeholder="Seu nome completo"
@@ -234,6 +266,7 @@ const ContactSection = () => {
                         Email *
                       </label>
                       <Input
+                        name="email"
                         id="email"
                         type="email"
                         placeholder="seu@email.com"
@@ -251,6 +284,7 @@ const ContactSection = () => {
                       Telefone
                     </label>
                     <Input
+                      name="telefone"
                       id="telefone"
                       type="tel"
                       placeholder="(11) 99999-9999"
@@ -267,6 +301,7 @@ const ContactSection = () => {
                       Assunto
                     </label>
                     <Input
+                      name="assunto"
                       id="assunto"
                       type="text"
                       placeholder="Ex: Dúvida sobre charutos cubanos"
@@ -282,6 +317,7 @@ const ContactSection = () => {
                       Mensagem *
                     </label>
                     <Textarea
+                      name="mensagem"
                       id="mensagem"
                       placeholder="Conte-nos como podemos ajudar..."
                       rows={5}
@@ -296,9 +332,36 @@ const ContactSection = () => {
                   <Button 
                     type="submit"
                     className="w-full bg-gradient-to-r from-primary to-accent hover:shadow-lg hover:shadow-primary/25 text-white font-semibold py-3"
+                    disabled={isSubmitting}
                   >
-                    Enviar Mensagem
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Enviando...
+                      </>
+                    ) : (
+                      'Enviar Mensagem'
+                    )}
                   </Button>
+
+                  {/* 
+                    FEEDBACK DE ENVIO
+                  */}
+                  {submitStatus === 'success' && (
+                    <Alert className="bg-green-500/10 text-green-500 border-green-500/20">
+                      <AlertDescription>
+                        Mensagem enviada com sucesso! Entraremos em contato em breve.
+                      </AlertDescription>
+                    </Alert>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <Alert className="bg-red-500/10 text-red-500 border-red-500/20">
+                      <AlertDescription>
+                        Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente.
+                      </AlertDescription>
+                    </Alert>
+                  )}
 
                   {/* 
                     NOTA SOBRE PRIVACIDADE

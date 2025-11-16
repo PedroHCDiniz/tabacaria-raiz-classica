@@ -23,7 +23,7 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-secondary to-accent text-secondary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           {/* 
             COLUNA 1 - SOBRE A TABACARIA
@@ -34,12 +34,12 @@ const Footer = () => {
               Tabacaria Raiz
             </h3>
             <p className="text-sm text-secondary-foreground/80 leading-relaxed">
-              Desde 1950, oferecendo os melhores produtos de tabaco com 
-              tradição, qualidade e atendimento excepcional.
+              Venha conferir nosso estabelecimento 
+               e nossos produtos que são RAIZ de verdade!
             </p>
             <div className="text-sm text-secondary-foreground/60">
-              <p>Est. 1950 • Tradição Familiar</p>
-              <p>75+ anos de excelência</p>
+              <p>Tradição Familiar</p>
+              <p>Excelência</p>
             </div>
           </div>
 
@@ -95,57 +95,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* 
-            COLUNA 3 - CATEGORIAS DE PRODUTOS
-            Links diretos para as principais categorias
-          */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-primary-glow">
-              Categorias
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a 
-                  href="#produtos" 
-                  className="text-secondary-foreground/80 hover:text-primary-glow transition-colors duration-300"
-                >
-                  Charutos Premium
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#produtos" 
-                  className="text-secondary-foreground/80 hover:text-primary-glow transition-colors duration-300"
-                >
-                  Cachimbos Artesanais
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#produtos" 
-                  className="text-secondary-foreground/80 hover:text-primary-glow transition-colors duration-300"
-                >
-                  Acessórios Finos
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#produtos" 
-                  className="text-secondary-foreground/80 hover:text-primary-glow transition-colors duration-300"
-                >
-                  Tabacos Especiais
-                </a>
-              </li>
-              {/* 
-                VOCÊ PODE ADICIONAR:
-                - Humidores
-                - Cortadores
-                - Isqueiros
-                - Cinzeiros
-                - Kits Iniciante
-              */}
-            </ul>
-          </div>
+          {/* Coluna 'Categorias' removida conforme solicitado */}
 
           {/* 
             COLUNA 4 - CONTATO E REDES SOCIAIS
@@ -164,8 +114,8 @@ const Footer = () => {
                 <span className="text-primary-glow">📍</span>
                 <div>
                   <p className="text-secondary-foreground/80">
-                    Rua do Comércio, 123<br />
-                    Centro Histórico - SP
+                    Rua Amin Fares Debian, 170<br />
+                    Centro Betim - MG
                   </p>
                 </div>
               </div>
@@ -173,10 +123,10 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <span className="text-primary-glow">📞</span>
                 <a 
-                  href="tel:+5511123456789"
+                  href="tel:+5531982081947"
                   className="text-secondary-foreground/80 hover:text-primary-glow transition-colors duration-300"
                 >
-                  (11) 1234-5678
+                  (31) 98208-1947
                 </a>
               </div>
               
@@ -186,7 +136,7 @@ const Footer = () => {
                   href="mailto:contato@tabacariaraiz.com.br"
                   className="text-secondary-foreground/80 hover:text-primary-glow transition-colors duration-300"
                 >
-                  contato@tabacariaraiz.com.br
+                  tabacariabetinho00@gmail.com
                 </a>
               </div>
             </div>
@@ -207,10 +157,13 @@ const Footer = () => {
                 >
                   📘
                 </a>
-                <a 
-                  href="#" 
+                <a
+                href="https://www.instagram.com/tabacariabetinho?utm_source=qr&igsh=MWhteGllcDBpNml5OA=="
+                  title="Instagram - Abrir em nova aba"
                   className="text-secondary-foreground/60 hover:text-primary-glow transition-colors duration-300 text-lg"
                   aria-label="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   📷
                 </a>
@@ -250,7 +203,7 @@ const Footer = () => {
                 © 2024 Tabacaria Raiz. Todos os direitos reservados.
               </p>
               <p className="text-xs mt-1">
-                CNPJ: 12.345.678/0001-99 • Licença Municipal: 123456
+                CNPJ: 12.345.678/0001-99
               </p>
             </div>
 

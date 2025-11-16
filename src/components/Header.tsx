@@ -33,7 +33,7 @@ const Header = () => {
             <h1 className="text-2xl font-bold text-primary">
               Tabacaria Raiz
             </h1>
-            <span className="text-sm text-muted-foreground">Est. 1950</span>
+            <span className="text-sm text-muted-foreground">Desde 2000</span>
           </div>
 
           {/* 
@@ -52,7 +52,9 @@ const Header = () => {
               Início
             </a>
             <a 
-              href="#produtos" 
+              href="/produtos" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-foreground hover:text-primary transition-colors duration-300"
             >
               Produtos
